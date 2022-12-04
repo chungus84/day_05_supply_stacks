@@ -15,11 +15,22 @@ class Rucksack
       @compartments << [[arr.split("").slice(0,arr.size/2)], [arr.split("").slice(arr.size/2, arr.size)]]
   end
 
+  def pack_compartments_part2(arr)
+    arr.each do |ele|
+      @compartments << [ele.first.split(""), ele[1].split(""), ele.last.split("")]
+    end
+  end
+
   def load_packs
     @d_loader.contents.each do |arr|
       pack_compartments(arr)
     end
     @compartments
+  end
+
+  def load_packs_part2
+    arr = @d_loader.contents.each_slice(3)
+    pack_compartments_part2(arr)
   end
 
   def compare_compartments
@@ -34,6 +45,21 @@ class Rucksack
     end
     @shared_items
   end
+
+  def compare_compartments_part2
+    @compartments.each do |pack|
+      temp_arr = []
+      pack.first.each do |le|
+        if pack[1].include?(le) & pack.last.include?(le) & !temp_arr.include?(le)
+          temp_arr << le
+        end
+      end
+      @shared_items << temp_arr
+    end
+    @shared_items
+  end
+
+
 
   def assign_priority
     lower = ('a'..'z').to_a
@@ -52,28 +78,9 @@ class Rucksack
 
 end
 
-new_rucksack = Rucksack.new
-# # new_rucksack.pack_compartments('vJrwpWtwJgWrhcsFMMfFFhFp')
-new_rucksack.load_packs
-new_rucksack.compare_compartments
-p new_rucksack.assign_priority
-# an_array = [["zBBtHnnHtwwH".split("")], ["plmlRlzPLCpp".split("")]]
+# new_rucksack = Rucksack.new
 
-# an_array.first.each do |arr|
-#   arr.each do |letter|
-#     if an_array.last.flatten.any?(letter)
-#       puts letter
-#     end
-#   end
-  # puts an_array.last.flatten.any?(letter)
-  #   puts letter
-  # end
-  # pack.to_s.each_char do |char|
-  #   if an_array.last.include?(char)
-  #     puts char
-  #   end
-  # end
+# new_rucksack.load_packs_part2
 
-# end
-# p an_array.last.flatten
-# puts an_array.last.flatten.any?("z")
+# new_rucksack.compare_compartments_part2
+# p new_rucksack.assign_priority

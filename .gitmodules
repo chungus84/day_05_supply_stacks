@@ -1,0 +1,6 @@
+[submodule "day_01_calorie_counting"]
+	path = day_01_calorie_counting
+	url = ./day_01_calorie_counting
+[submodule "day_02_rock_paper_scissors"]
+	path = day_02_rock_paper_scissors
+	url = ./day_02_rock_paper_scissors

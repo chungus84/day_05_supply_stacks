@@ -2,6 +2,7 @@ class SupplyStack
   attr_reader :stack
   def initialize
     @stack = []
+    @moves = Dataloader.new
   end
 
   def load_stack(new_stack)

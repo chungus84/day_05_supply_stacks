@@ -15,14 +15,10 @@ class SupplyStack
 
   def move_stack
     @moves.data.each do |arr|
-
       popped = @stack[arr[1]-1].pop(arr[0])
-      # p popped
       popped.each do |ele|
         @stack[arr[2]-1].append(ele)
-
       end
-      # @stack.each {|arr| p arr.flatten }
     end
     @stack.each {|arr| p arr.flatten }
   end
@@ -30,9 +26,6 @@ end
 
 
 new_stack = SupplyStack.new('data/data.txt')
-# test_stack = [['Z'], ['N']],
-#         [['M'], ['C'], ['D']],
-#         [['P']]
 
 actual_data = [['F'],['H'],['B'],['V'],['R'],['Q'],['D'],['P']],
               [['L'],['D'],['Z'],['Q'],['W'],['V']],

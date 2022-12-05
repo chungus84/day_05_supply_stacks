@@ -10,7 +10,7 @@ class Dataloader
     data_file = file_data.readlines.map(&:chomp)
     data_file.each do |row|
       @data << [row[5, 2].strip.to_i, row[12, 2].strip.to_i, row[17, 2].strip.to_i]
-      # puts "#{row[5, 2].strip} and #{row[12, 2].strip} and #{row[17, 2].strip}"
+
 
     end
   end

@@ -13,7 +13,7 @@ describe SupplyStack do
   end
 
   describe '.move_stack' do
-    new_stack = SupplyStack.new
+    new_stack = SupplyStack.new('data/data_test.txt')
     test_stack = [['Z', 'N'],
         ['M', 'C', 'D'],
         ['P']]
